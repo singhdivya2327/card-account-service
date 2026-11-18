@@ -1,4 +1,4 @@
-package com.divya.card_account_api;
+package com.divya.cardaccountapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
