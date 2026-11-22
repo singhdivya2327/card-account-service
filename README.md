@@ -31,6 +31,20 @@ Planned (in this order):
 | GET    | /accounts      | Returns all card accounts (in-memory data)      |
 | GET    | /accounts/{id} | Returns one account, or 404 if it doesn't exist |
 - Request validation and global exception handling
+
+
+## Running locally
+
+The API is secured with OAuth2 (JWT bearer tokens), so a secret is required at startup.
+
+Set `JWT_SECRET` (at least 32 characters) before running:
+
+```powershell
+$env:JWT_SECRET="your-secret-at-least-32-characters-long"
+.\gradlew.bat bootRun
+```
+
+Scopes: `accounts.read` for GET, `accounts.write` for POST. Requests without a valid token get 401. A valid token without the required scope gets 403.
 - Spring Security with JWT login
 - MySQL with Spring Data JPA, and transactions
 - Unit tests, Docker, and splitting into microservices
