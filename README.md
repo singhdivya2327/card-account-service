@@ -37,7 +37,7 @@ Requests without a valid token get 401. A valid token without the required scope
 Done:
 - Project setup, package structure, health endpoint
 - Card account model, service layer, and accounts endpoints (in-memory data)
-- POST /accounts
+- POST /accounts with request validation (400 on invalid input)
 - Security: JWT bearer token validation with scope-based access
 
 Planned (in this order):
