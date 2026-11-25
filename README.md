@@ -39,8 +39,8 @@ Done:
 - Card account model, service layer, and accounts endpoints (in-memory data)
 - POST /accounts with request validation (400 on invalid input)
 - Security: JWT bearer token validation with scope-based access
+- Global exception handling (consistent JSON errors for 400, 404 and 500)
 
 Planned (in this order):
-- Request validation and global exception handling
 - MySQL with Spring Data JPA, and transactions
 - Unit tests, Docker, and splitting into microservices

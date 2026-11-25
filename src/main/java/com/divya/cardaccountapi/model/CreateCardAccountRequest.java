@@ -8,11 +8,10 @@ import jakarta.validation.constraints.PositiveOrZero;
 
 public class CreateCardAccountRequest {
 
-    @NotBlank String holderName;
-    @NotBlank String maskedCardNumber;
-    @NotNull @PositiveOrZero BigDecimal balance;
-    public CreateCardAccountRequest(@NotBlank String holderName, @NotBlank String maskedCardNumber,
-            @NotNull @PositiveOrZero BigDecimal balance) {
+    @NotBlank private String holderName;
+    @NotBlank private String maskedCardNumber;
+    @NotNull @PositiveOrZero private BigDecimal balance;
+    public CreateCardAccountRequest(String holderName, String maskedCardNumber, BigDecimal balance) {
         this.holderName = holderName;
         this.maskedCardNumber = maskedCardNumber;
         this.balance = balance;

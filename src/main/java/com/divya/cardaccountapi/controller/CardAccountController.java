@@ -2,6 +2,8 @@ package com.divya.cardaccountapi.controller;
 
 import java.util.List;
 
+import com.divya.cardaccountapi.exception.AccountNotFoundException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,8 @@ import com.divya.cardaccountapi.model.CreateCardAccountRequest;
 import com.divya.cardaccountapi.service.CardAccountService;
 
 import jakarta.validation.Valid;
+
+
 @RestController 
 @RequestMapping ("/accounts")
 public class CardAccountController {
@@ -29,10 +33,9 @@ public class CardAccountController {
         return cardAccountService.getAllCardAccounts();
     }
     @GetMapping ("/{id}")
-    public ResponseEntity<CardAccount> getCardAccountById(@PathVariable Long id){
+    public CardAccount getCardAccountById(@PathVariable Long id){
         return cardAccountService.getCardAccountById(id)
-        .map(ResponseEntity::ok)
-        .orElse(ResponseEntity.notFound().build());
+        .orElseThrow(() -> new AccountNotFoundException(id));
 
     }
 
